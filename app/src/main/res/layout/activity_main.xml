@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:background="@drawable/logo_pan"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_breadfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginTop="290dp"
+            android:textSize="40sp"
+            android:alpha=".80"
+            android:fontFamily="@font/sofia_regular"
+            android:text="@string/title_breadfast" />
+
+        <TextView
+            android:id="@+id/description_breadfast"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/solway_regular"
+            android:text="@string/init_description"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            />
+
+        <TextView
+            android:id="@+id/description_v2_breadfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha=".60"
+            android:text="@string/init_description_v2"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_init_session"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:backgroundTint="#C67C4E"
+            android:text="@string/txt_button_init_session" />
+        <Button
+            android:id="@+id/btn_init_register"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:backgroundTint="#C67C4E"
+
+            android:text="@string/txt_button_init_register"/>
+    </LinearLayout>
+
+</LinearLayout>

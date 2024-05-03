@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Panaderia</string>
+    <string name="title_breadfast">BreadFast</string>
+    <string name="init_description">Tu panadería de confianza, ahora en tu móvil</string>
+    <string name="init_description_v2">Sabor y tradición, en un app sin igual</string>
+    <string name="txt_button_init_session">Iniciar Sesión</string>
+    <string name="txt_button_init_register">Registrarse</string>
+</resources>
