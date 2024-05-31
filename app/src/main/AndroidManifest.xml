@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Panaderia"
         tools:targetApi="31">
         <activity
+            android:name=".views.ProductDetails"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
