@@ -1,14 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/main_activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".views.RegisterActivity"
+    android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/register_background"
+        android:contentDescription="@string/img_content" />
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hola gente"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        app:cardCornerRadius="55dp"
+        android:backgroundTint="#FFF7F3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:backgroundTint="#DFD6D3"
+                android:gravity="center_horizontal"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_button_init_register"
+                    android:textSize="35sp"
+                    android:textColor="@color/txt_view_color"
+                    android:fontFamily="@font/sofia_regular" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/userTypeRadio"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/ButtonSelected"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/registerClient"
+                        android:fontFamily="@font/sora_semi_bold"
+                        android:layout_marginEnd="30dp"
+                        android:text="@string/rb_client">
+                    </Button>
+
+                    <Button
+                        style="@style/ButtonNoSelected"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/registerSeller"
+                        android:fontFamily="@font/sora_semi_bold"
+                        android:text="@string/rb_sellet">
+                    </Button>
+                </RadioGroup>
+
+                <FrameLayout
+                    android:id="@+id/fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

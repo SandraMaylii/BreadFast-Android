@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".register.RegisterClientFragment">
+
+    <LinearLayout
+        android:id="@+id/fragment_form_register_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_semi_bold"
+            android:text="@string/user_name" />
+
+        <EditText
+            style="@style/EditTextRegister"
+            android:id="@+id/etNombreClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/hint_user_name"
+            android:inputType="text"
+            tools:ignore="LabelFor"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_semi_bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/last_name" />
+
+        <EditText
+            style="@style/EditTextRegister"
+            android:id="@+id/etLastNameClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:inputType="text"
+            android:hint="@string/hint_user_last_name"
+            tools:ignore="LabelFor"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_semi_bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/email" />
+
+        <EditText
+            style="@style/EditTextRegister"
+            android:id="@+id/etEmailClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:inputType="textEmailAddress"
+            android:hint="@string/hint_user_hint_email"
+            tools:ignore="LabelFor"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_semi_bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/password" />
+
+        <EditText
+            style="@style/EditTextRegister"
+            android:id="@+id/etPasswordClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:inputType="textPassword"
+            android:hint="@string/hint_user_password"
+            tools:ignore="LabelFor"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_semi_bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/confirm_password" />
+
+        <EditText
+            style="@style/EditTextRegister"
+            android:id="@+id/etConfirmPasswordClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:inputType="textPassword"
+            android:hint="@string/hint_user_confirm_password"
+            tools:ignore="LabelFor"
+            android:autofillHints="" />
+
+        <Button
+            style="@style/ButtonRound"
+            android:id="@+id/btnGuardarClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/txt_button_init_register">
+        </Button>
+
+    </LinearLayout>
+
+</ScrollView>
