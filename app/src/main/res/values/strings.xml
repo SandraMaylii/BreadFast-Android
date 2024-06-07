@@ -1,5 +1,27 @@
 <resources>
     <string name="app_name">Panaderia</string>
+    <string name="txt_registro">Registro</string>
+    <string name="et_Nombres">Nombres</string>
+    <string name="et_R_Password">Repita la Contraseña</string>
+    <string name="btn_Cerrarsesion">Cerrar Sesión</string>
+    <string name="btn_Registrar">Registrar</string>
+    <string name="item_Inicio">Inicio</string>
+    <string name="item_usuarios">Usuarios</string>
+    <string name="item_pedidos">Pedidos</string>
+    <string name="tv_Titulo">Titulo</string>
+    <string name="opcionEmail">Continuar con Email</string>
+    <string name="opcionGoogle">Continuar con Google</string>
+    <string name="item_puntos">Puntos</string>
+    <string name="item_perfil">Perfil</string>
+    <string name="txt_login">Iniciar Sesión</string>
+    <string name="et_email">Correo Electrónico</string>
+    <string name="et_password">Contraseña</string>
+    <string name="btn_Ingresar">Ingresar</string>
+    <string name="txt_no_tienes_cuenta">¿No tienes una Cuenta?</string>
+    <string name="tv_registrarme">Registrarme</string>
+    <string name="title_login">Iniciar Sesión</string>
+    <string name="title_correo">Correo</string>
+    <string name="tittle_password">Contraseña</string>
     <string name="title_breadfast">BreadFast</string>
     <string name="init_description">Tu panadería de confianza, ahora en tu móvil</string>
     <string name="init_description_v2">Sabor y tradición, en un app sin igual</string>
