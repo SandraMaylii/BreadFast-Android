@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.upao.panaderia.controllers.UserController
@@ -32,8 +33,15 @@ class RegisterClientFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userController = UserController(requireContext())
-        binding.btnGuardarClient.setOnClickListener {
 
+        // Añade oyentes de foco para el desplazamiento suave
+        setFocusListener(binding.etNombreClient)
+        setFocusListener(binding.etLastNameClient)
+        setFocusListener(binding.etEmailClient)
+        setFocusListener(binding.etPasswordClient)
+        setFocusListener(binding.etConfirmPasswordClient)
+
+        binding.btnGuardarClient.setOnClickListener {
             val name = binding.etNombreClient.text.toString()
             val lastName = binding.etLastNameClient.text.toString()
             val email = binding.etEmailClient.text.toString()
@@ -43,21 +51,33 @@ class RegisterClientFragment : Fragment() {
             if (password != confirmPassword) {
                 binding.etPasswordClient.error = "Las contraseñas no coinciden"
                 binding.etConfirmPasswordClient.error = "Las contraseñas no coinciden"
-                Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
-            if(name.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(requireContext(), "Complete todos los campos", Toast.LENGTH_SHORT).show()
+            if (name.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(requireContext(), "Complete todos los campos", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
             val createdAt = Date()
             val updatedAt = Date()
 
-            val user = UserRequest(name, lastName, email, password, "client", 1, 0, createdAt.toString(), updatedAt.toString())
+            val user = UserRequest(
+                name,
+                lastName,
+                email,
+                password,
+                "client",
+                1,
+                0,
+                createdAt.toString(),
+                updatedAt.toString()
+            )
 
-            val success =  userController.register(user)
+            val success = userController.register(user)
 
             if (!success) {
                 Toast.makeText(requireContext(), "El usuario ya existe", Toast.LENGTH_SHORT).show()
@@ -67,7 +87,7 @@ class RegisterClientFragment : Fragment() {
                 cleanFields()
                 val saveUser = "$name,$lastName,$email"
                 SharedPreferencesManager.setUserData(requireContext(), saveUser)
-                val i = Intent(activity , HomeActivity::class.java)
+                val i = Intent(activity, HomeActivity::class.java)
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(i)
             }
@@ -85,5 +105,16 @@ class RegisterClientFragment : Fragment() {
         binding.etEmailClient.text.clear()
         binding.etPasswordClient.text.clear()
         binding.etConfirmPasswordClient.text.clear()
+    }
+
+    private fun setFocusListener(editText: EditText) {
+        editText.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.scrollView.post {
+                    val extraScroll = 1500
+                    binding.scrollView.smoothScrollTo(0, editText.top - extraScroll)
+                }
+            }
+        }
     }
 }

@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:id="@+id/scrollView"
     tools:context=".register.RegisterClientFragment">
 
     <LinearLayout
         android:id="@+id/fragment_form_register_client"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,6 +35,8 @@
             android:inputType="text"
             tools:ignore="LabelFor"
             android:autofillHints="" />
+
+
 
         <TextView
             android:layout_width="wrap_content"

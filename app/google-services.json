@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897804011884",
+    "project_id": "appbreadfast",
+    "storage_bucket": "appbreadfast.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897804011884:android:37dfb3cf0982e11567cb49",
+        "android_client_info": {
+          "package_name": "com.upao.panaderia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUNyd9wwPtFddc9y-Lg_5As3me0R7385Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
