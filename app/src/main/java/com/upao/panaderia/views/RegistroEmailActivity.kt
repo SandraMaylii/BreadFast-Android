@@ -42,16 +42,22 @@ class RegistroEmailActivity : AppCompatActivity() {
     private var nombres = ""
     private var email = ""
     private var password = ""
+    private var apellidos = ""
     private var r_password = ""
     private fun validarInformacion() {
         nombres = binding.etNombres.text.toString().trim()
         email = binding.etEmail.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
         r_password = binding.etRPassword.text.toString().trim()
+        apellidos = binding.etApellidos.text.toString().trim()
 
         if (nombres.isEmpty()) {
             binding.etNombres.error = "Ingrese Nombre"
             binding.etNombres.requestFocus()
+        } else if (apellidos.isEmpty()) {
+            binding.etApellidos.error = "Ingrese Apellidos"
+            binding.etApellidos.requestFocus()
+
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etEmail.error = "Correo Inválido"
             binding.etEmail.requestFocus()
@@ -100,16 +106,18 @@ class RegistroEmailActivity : AppCompatActivity() {
 
         val uidU = firebaseAuth.uid
         val nombresU = nombres
+        val apellidosU = apellidos
         val emailU = firebaseAuth.currentUser!!.email
         val tiempoR = Constantes.obtenerTiempoD()
 
         val datosUsuario = HashMap<String, Any>()
         datosUsuario["uid"] = "$uidU"
         datosUsuario["nombres"] = "$nombresU"
+        datosUsuario["Apellidos"] = "$apellidosU"
         datosUsuario["email"] = "$emailU"
         datosUsuario["tiempoR"] = "$tiempoR"
         datosUsuario["proveedor"] = "Email"
-        datosUsuario["estado"] = "Online"
+        datosUsuario["imagen"] = ""
 
         val reference = FirebaseDatabase.getInstance().getReference(("Usuarios"))
         reference.child(uidU!!)

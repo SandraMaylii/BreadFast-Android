@@ -14,7 +14,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:fontFamily="@font/sofia_regular"
         android:text="@string/txt_registro"
         android:textAllCaps="true"
@@ -34,6 +33,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/et_Nombres"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/et_Apellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_Apellidos"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
