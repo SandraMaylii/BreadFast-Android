@@ -1,11 +1,15 @@
 package com.upao.panaderia.views
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -15,6 +19,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import com.upao.panaderia.R
 import com.upao.panaderia.databinding.ActivityEditarInformacionBinding
 import com.upao.panaderia.databinding.ActivityLoginEmailBinding
@@ -27,6 +32,9 @@ class EditarInformacion : AppCompatActivity() {
     private lateinit var binding: ActivityEditarInformacionBinding
     private lateinit var fireBaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
+
+    //Almacenar la img seleccionada de la Galeria
+    private var imagenUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarInformacionBinding.inflate(layoutInflater)
@@ -45,11 +53,105 @@ class EditarInformacion : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
+        binding.IvEditarImg.setOnClickListener {
+            //Verificar la versión de Android
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                abrirGaleria()
+            } else {
+                solicitarPermisoAlmacenamiento.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
+
+        }
+
         binding.btnActualizar.setOnClickListener {
             validarInformacion()
         }
 
     }
+
+    private fun abrirGaleria() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        galeriaARL.launch(intent)
+
+    }
+
+    private val galeriaARL =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resultado ->
+            if (resultado.resultCode == Activity.RESULT_OK) {
+                val data = resultado.data
+                imagenUri = data!!.data
+                subirImagenStorage(imagenUri)
+            } else {
+                Toast.makeText(
+                    this,
+                    "Cancelado",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+    private fun subirImagenStorage(imagenUri: Uri?) {
+        progressDialog.setMessage("Subiendo Imágen")
+        progressDialog.show()
+        val rutaImagen = "ImagenesPerfil/" + fireBaseAuth.uid
+        val ref = FirebaseStorage.getInstance().getReference(rutaImagen)
+        ref.putFile(imagenUri!!)
+            .addOnSuccessListener { taskSnapShot ->
+                val uriTask = taskSnapShot.storage.downloadUrl
+                while (!uriTask.isSuccessful);
+                val urlImagenCargada = uriTask.result.toString()
+                if (uriTask.isSuccessful) {
+                    actualziarInformacionBaseDatods(urlImagenCargada)
+                }
+            }
+            .addOnFailureListener { e ->
+            }
+    }
+
+    private fun actualziarInformacionBaseDatods(urlImagenCargada: String) {
+        progressDialog.setMessage("Actualizando Imágen")
+        progressDialog.show()
+
+        val hasMap: HashMap<String, Any> = HashMap()
+        if (imagenUri != null) {
+            hasMap["imagen"] = urlImagenCargada
+        }
+
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(fireBaseAuth.uid!!)
+            .updateChildren(hasMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Toast.makeText(
+                    this,
+                    "Su Imágen de Perfil se ha Actualizado",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            .addOnFailureListener { e ->
+                progressDialog.dismiss()
+                Toast.makeText(
+                    this,
+                    e.message,
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            }
+    }
+
+    private val solicitarPermisoAlmacenamiento =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { esConcedido ->
+            if (esConcedido) {
+                abrirGaleria()
+            } else {
+                Toast.makeText(
+                    this,
+                    "El permiso de Almacenamiento ha sido denegado",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
 
     private var nombres = ""
     private var apellidos = ""
@@ -59,7 +161,7 @@ class EditarInformacion : AppCompatActivity() {
     private fun validarInformacion() {
         nombres = binding.etNombres.text.toString().trim()
         apellidos = binding.etApellidos.text.toString().trim()
-        emails = binding.etEmail.text.toString().trim()
+        emails = binding.email.text.toString().trim()
 
         if (nombres.isEmpty()) {
             binding.etNombres.error = "Ingrese Nombres"
@@ -68,13 +170,13 @@ class EditarInformacion : AppCompatActivity() {
             binding.etApellidos.error = "Ingrese Apellidos"
             binding.etApellidos.requestFocus()
         } else if (emails.isEmpty()) {
-            binding.etEmail.error = "Ingrese Correo"
-            binding.etEmail.requestFocus()
+            binding.email.error = "Ingrese Correo"
+            binding.email.requestFocus()
 
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emails).matches()) {
 
-            binding.etEmail.error = "Correo Inválido"
-            binding.etEmail.requestFocus()
+            binding.email.error = "Correo Inválido"
+            binding.email.requestFocus()
         } else {
             actualizarInformacion()
         }
@@ -130,7 +232,8 @@ class EditarInformacion : AppCompatActivity() {
                     // Actualizar los campos de texto con los nombres y apellidos del usuario
                     binding.etNombres.setText(nombres)
                     binding.etApellidos.setText(apellidos)
-                    binding.etEmail.setText(email)
+                    binding.email.setText(email)
+
 
                     try {
                         // Cargar la imagen de perfil del usuario usando Glide

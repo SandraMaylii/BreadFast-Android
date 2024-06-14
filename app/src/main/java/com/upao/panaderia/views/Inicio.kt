@@ -24,7 +24,7 @@ class Inicio : AppCompatActivity() {
         val button: Button = findViewById(R.id.btn_init_register)
 
         button.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, RegistroEmailActivity::class.java)
             startActivity(intent)
         }
 
