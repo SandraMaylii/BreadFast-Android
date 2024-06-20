@@ -34,10 +34,15 @@ class LoginEmailActivity : AppCompatActivity() {
             validarInformacion()
         }
 
+
+
         binding.tvRegistrarme.setOnClickListener {
             startActivity(Intent(applicationContext, RegistroEmailActivity::class.java))
         }
 
+        binding.tvRecuperarCuenta.setOnClickListener {
+            startActivity(Intent(applicationContext, OlvidePassword::class.java))
+        }
     }
 
     private var email = ""
@@ -66,13 +71,13 @@ class LoginEmailActivity : AppCompatActivity() {
     private fun logearUsuario() {
         progessDialog.setMessage("Ingresando")
         progessDialog.show()
-        firebaseAuth.signInWithEmailAndPassword(email,password)
+        firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 progessDialog.dismiss()
-                startActivity(Intent(this,MainActivity::class.java))
-               finishAffinity()
+                startActivity(Intent(this, MainActivity::class.java))
+                finishAffinity()
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener { e ->
                 progessDialog.dismiss()
                 Toast.makeText(
                     this,

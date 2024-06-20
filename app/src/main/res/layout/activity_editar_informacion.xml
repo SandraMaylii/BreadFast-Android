@@ -25,13 +25,14 @@
         </ImageButton>
 
         <TextView
+            android:fontFamily="@font/sofia_regular"
             android:id="@+id/txt_tiulo_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/txt_titulo_edit"
             android:textColor="@color/txt_view_color"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <View
@@ -130,7 +131,7 @@
                 app:boxCornerRadiusTopStart="8dp">
 
                 <EditText
-                    android:id="@+id/et_Email"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/et_email"

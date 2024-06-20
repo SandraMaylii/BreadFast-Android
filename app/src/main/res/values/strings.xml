@@ -17,15 +17,19 @@
     <string name="txt_titulo_edit">Editar Informacion</string>
     <string name="et_R_Password">Repita la Contraseña</string>
     <string name="btn_Cerrarsesion">Cerrar Sesión</string>
+    <string name="Txt_olvide_pass">Olvidé Contraseña</string>
     <string name="btn_EditarCampos">Editar Campos</string>
     <string name="btn_Registrar">Registrar</string>
     <string name="item_Inicio">Inicio</string>
     <string name="item_usuarios">Usuarios</string>
+    <string name="btn_enviar">Enviar</string>
     <string name="item_pedidos">Pedidos</string>
+    <string name="Txt_ingrese_email">Ingrese su Correo para la recuperación</string>
     <string name="tv_Titulo">Titulo</string>
     <string name="btn_Actualizar">Actualizar</string>
     <string name="opcionEmail">Continuar con Email</string>
     <string name="opcionGoogle">Continuar con Google</string>
+    <string name="tx_cliente">Cliente</string>
     <string name="item_puntos">Puntos</string>
     <string name="item_perfil">Perfil</string>
     <string name="txt_login">Iniciar Sesión</string>
@@ -34,6 +38,7 @@
     <string name="btn_Ingresar">Ingresar</string>
     <string name="txt_no_tienes_cuenta">¿No tienes una Cuenta?</string>
     <string name="tv_registrarme">Registrarme</string>
+    <string name="tv_recuperar_cuenta">¿Olvidaste la Contraseña<b> Recuperar</b></string>
     <string name="title_login">Iniciar Sesión</string>
     <string name="title_correo">Correo</string>
     <string name="tittle_password">Contraseña</string>
