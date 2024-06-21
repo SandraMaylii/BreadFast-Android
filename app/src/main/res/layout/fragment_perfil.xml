@@ -100,7 +100,7 @@
             android:id="@+id/btn_CerrarSesion"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_EditarCampos"
+            android:layout_below="@id/btn_CambiarPass"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -121,6 +121,20 @@
             android:backgroundTint="@color/button"
             android:text="@string/btn_EditarCampos"
             android:textAllCaps="true"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_CambiarPass"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_EditarCampos"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/button"
+            android:text="@string/btn_CambiarPass"
+            android:textAllCaps="true"
+            android:visibility="gone"
             app:cornerRadius="8dp" />
 
         <TextView

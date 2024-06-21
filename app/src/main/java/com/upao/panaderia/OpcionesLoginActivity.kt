@@ -50,6 +50,10 @@ class OpcionesLoginActivity : AppCompatActivity() {
 
         comprobarSesion()
 
+        binding.btnRegresar.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.opcionEmail.setOnClickListener {
             startActivity(Intent(applicationContext, LoginEmailActivity::class.java))
         }

@@ -1,15 +1,13 @@
 package com.upao.panaderia.models.adaptersModel
 
-class Producto {
+class ProductAdapterModel(
+    var title: String,
+    var description: String,
+    var image: Int,
+    var price: Double
 
-    var nombre: String = ""
-    var precio: Double = 0.0
-    var imagen: String = ""
 
-    constructor()
-    constructor(nombre: String, precio: Double, imagen: String) {
-        this.nombre = nombre
-        this.precio = precio
-        this.imagen = imagen
-    }
+) {
+
+
 }
