@@ -17,6 +17,12 @@
     <string name="txt_titulo_edit">Editar Informacion</string>
     <string name="et_R_Password">Repita la Contraseña</string>
     <string name="btn_Cerrarsesion">Cerrar Sesión</string>
+    <string name="btn_CambiarPass">Cambiar Contraseña</string>
+    <string name="Txt_Cambiar_pass">Cambiar Contraseña</string>
+    <string name="et_pass_actual">Contraseña Actual</string>
+    <string name="et_pass_nueva">Contraseña Nueva</string>
+    <string name="et_r_pass_nueva">Repepitr Contrseña</string>
+    <string name="btn_CambiarPassword">Cambiar</string>
     <string name="Txt_olvide_pass">Olvidé Contraseña</string>
     <string name="btn_EditarCampos">Editar Campos</string>
     <string name="btn_Registrar">Registrar</string>
@@ -85,4 +91,5 @@
     <string name="plus_button">+</string>
     <string name="button_plus">Button plus</string>
     <string name="user_logged">%1$s %2$s</string>
+    <string name="productos">Productos</string>
 </resources>

@@ -156,6 +156,7 @@ class EditarInformacion : AppCompatActivity() {
     private var nombres = ""
     private var apellidos = ""
     private var emails = ""
+    val pattern = Regex("^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(?:\\s+[A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$")
 
 
     private fun validarInformacion() {
@@ -166,6 +167,12 @@ class EditarInformacion : AppCompatActivity() {
         if (nombres.isEmpty()) {
             binding.etNombres.error = "Ingrese Nombres"
             binding.etNombres.requestFocus()
+        } else if (!pattern.matches(nombres)) {
+            binding.etNombres.error = "Nombre Inválido. Solo letras permitidas."
+            binding.etNombres.requestFocus()
+        } else if (!pattern.matches(apellidos)) {
+            binding.etApellidos.error = "Apelldio Inválido. Solo letras permitidas."
+            binding.etApellidos.requestFocus()
         } else if (apellidos.isEmpty()) {
             binding.etApellidos.error = "Ingrese Apellidos"
             binding.etApellidos.requestFocus()

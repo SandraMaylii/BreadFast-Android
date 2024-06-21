@@ -19,6 +19,7 @@ import com.upao.panaderia.MainActivity
 import com.upao.panaderia.OpcionesLoginActivity
 import com.upao.panaderia.R
 import com.upao.panaderia.databinding.FragmentPerfilBinding
+import com.upao.panaderia.views.CambiarPassword
 import com.upao.panaderia.views.Constantes
 import com.upao.panaderia.views.EditarInformacion
 import com.upao.panaderia.views.Inicio
@@ -61,8 +62,13 @@ class FragmentPerfil : Fragment() {
 
         //Nos dirige a la actividad EditarInformación
         binding.btnEditarCampos.setOnClickListener {
-            startActivity(Intent(mContext,EditarInformacion::class.java))
+            startActivity(Intent(mContext, EditarInformacion::class.java))
         }
+
+        binding.btnCambiarPass.setOnClickListener {
+            startActivity(Intent(mContext, CambiarPassword::class.java))
+        }
+
 
         binding.btnCerrarSesion.setOnClickListener {
             firebaseAuth.signOut()
@@ -115,6 +121,11 @@ class FragmentPerfil : Fragment() {
                             "${e.message}",
                             Toast.LENGTH_SHORT
                         ).show()
+                    }
+
+                    if (proveedor == "Email") {
+                        binding.btnCambiarPass.visibility = View.VISIBLE
+
                     }
                 }
 

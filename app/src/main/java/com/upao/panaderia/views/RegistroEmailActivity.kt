@@ -50,33 +50,35 @@ class RegistroEmailActivity : AppCompatActivity() {
         password = binding.etPassword.text.toString().trim()
         r_password = binding.etRPassword.text.toString().trim()
         apellidos = binding.etApellidos.text.toString().trim()
+        val pattern = Regex("^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(?:\\s+[A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$")
 
         if (nombres.isEmpty()) {
             binding.etNombres.error = "Ingrese Nombre"
             binding.etNombres.requestFocus()
+        } else if (!pattern.matches(nombres)) {
+            binding.etNombres.error = "Nombre inválido. Solo letras permitidas."
+            binding.etNombres.requestFocus()
         } else if (apellidos.isEmpty()) {
             binding.etApellidos.error = "Ingrese Apellidos"
             binding.etApellidos.requestFocus()
-
+        } else if (!pattern.matches(apellidos)) {
+            binding.etApellidos.error = "Apellido inválido. Solo letras permitidas."
+            binding.etApellidos.requestFocus()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etEmail.error = "Correo Inválido"
             binding.etEmail.requestFocus()
-
         } else if (email.isEmpty()) {
             binding.etEmail.error = "Ingrese Correo"
             binding.etEmail.requestFocus()
-
         } else if (password.isEmpty()) {
             binding.etPassword.error = "Ingrese Contraseña"
             binding.etPassword.requestFocus()
         } else if (r_password.isEmpty()) {
             binding.etRPassword.error = "Repita la contraseña"
             binding.etRPassword.requestFocus()
-
         } else if (password != r_password) {
             binding.etRPassword.error = "No coincide la contraseña"
             binding.etRPassword.requestFocus()
-
         } else {
             registrarUsuario()
         }
