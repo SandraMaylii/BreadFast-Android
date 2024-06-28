@@ -50,7 +50,7 @@ class FragmentPerfil : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPerfilBinding.inflate(layoutInflater, container, false)
-        // Inflate the layout for this fragment
+        // Retorno de la Vista Raíz
         return binding.root
     }
 
