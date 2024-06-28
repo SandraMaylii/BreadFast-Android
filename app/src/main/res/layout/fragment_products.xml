@@ -65,7 +65,7 @@
         <EditText
             android:id="@+id/etBuscarProducto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:background="@drawable/search_background"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="16dp"
@@ -185,8 +185,6 @@
             android:layout_width="match_parent"
             android:layout_height="259dp"
             android:layout_marginTop="16dp" />
-
-
     </LinearLayout>
 
 
