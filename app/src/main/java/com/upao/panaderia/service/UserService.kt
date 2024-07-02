@@ -1,9 +1,14 @@
 package com.upao.panaderia.service
 
 import android.content.Context
-import com.upao.panaderia.models.UserRequest
-import com.upao.panaderia.models.UserResponse
+import com.upao.panaderia.models.requestModel.RegisterRequest
+import com.upao.panaderia.models.requestModel.UserRequest
+import com.upao.panaderia.models.responseModel.UserResponse
 import com.upao.panaderia.repositories.UserRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UserService(context: Context) {
 
@@ -13,16 +18,21 @@ class UserService(context: Context) {
         return true
     }
 
-    fun register(user: UserRequest): Boolean {
-        userRepository.open()
-        val result = userRepository.findByEmail(user.email)
-        return if (result) {
-            userRepository.close()
-            false
-        } else {
-            val response = userRepository.register(user)
-            userRepository.close()
-            response
+    fun register(context: Context, user: RegisterRequest, onResult: (Boolean) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val isSuccess = userRepository.register(context, user)
+            withContext(Dispatchers.Main) {
+                onResult(isSuccess)
+            }
+        }
+    }
+
+    fun getUser(context: Context, email: String, onResult: (UserResponse) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = userRepository.getUser(context, email)
+            withContext(Dispatchers.Main) {
+                onResult(user)
+            }
         }
     }
 

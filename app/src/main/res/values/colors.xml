@@ -11,4 +11,7 @@
     <color name="edit_txt_hint">#A6A09D</color>
     <color name="txt_view_color">#2F2D2C</color>
     <color name="search_product">#F4E3DA</color>
+    <color name="FondoQr">#FFA07A</color>
+    <color name="boton_cancelar">#C57C51</color>
+    <color name="boton_agregar_disminuir">#ED8A19</color>
 </resources>

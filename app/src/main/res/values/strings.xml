@@ -92,4 +92,9 @@
     <string name="button_plus">Button plus</string>
     <string name="user_logged">%1$s %2$s</string>
     <string name="productos">Productos</string>
+    <string name="item_cart_description">descripcion del producto de carrito</string>
+    <string name="cheesecake_chocolate">Cheesecake Chocolate</string>
+    <string name="cremosa_con_intenso_sabor_a_chocolate">Cremosa, con intenso sabor a chocolate...</string>
+    <string name="s_50_00">S/ 50.00</string>
+    <string name="next_button">Siguiente</string>
 </resources>

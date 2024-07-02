@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +51,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,12 +60,13 @@
         <EditText
             android:id="@+id/etBuscarProducto"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/search_background"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="16dp"
             android:hint="@string/search_product"
-            android:inputType="text" />
+            android:inputType="text"
+            android:autofillHints="search" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -84,9 +83,9 @@
                     android:id="@+id/imgBanner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/home_image"
+                    android:src="@drawable/inicio"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/inicio" />
+                    android:contentDescription="@string/home_image" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -97,20 +96,20 @@
                         android:id="@+id/tvBannerText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/solway_regular"
-                        android:padding="8dp"
                         android:text="@string/accumulate_poinst_for_purchases"
+                        android:fontFamily="@font/solway_regular"
+                        android:textSize="30sp"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="30sp"
+                        android:padding="8dp"
                         android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btnMisPuntos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:backgroundTint="@color/button"
+                        android:layout_gravity="center"
                         android:text="@string/my_order"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
@@ -123,12 +122,12 @@
             android:id="@+id/tvCategorias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/sora_regular"
             android:text="@string/tvCategorias"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/sora_regular"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -145,36 +144,36 @@
                     android:id="@+id/btnTortas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#D9B39A"
                     android:text="@string/tortas"
+                    android:backgroundTint="#D9B39A"
                     android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/btnPanes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="#E0E0E0"
                     android:text="@string/panes"
-                    android:textColor="@android:color/black" />
+                    android:backgroundTint="#E0E0E0"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="8dp" />
 
                 <Button
                     android:id="@+id/btnBocaditos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="#E0E0E0"
                     android:text="@string/bocaditos"
-                    android:textColor="@android:color/black" />
+                    android:backgroundTint="#E0E0E0"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="8dp" />
 
                 <Button
                     android:id="@+id/btnPiononos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="#E0E0E0"
                     android:text="@string/piononos"
-                    android:textColor="@android:color/black" />
+                    android:backgroundTint="#E0E0E0"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
         </HorizontalScrollView>
 

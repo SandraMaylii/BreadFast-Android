@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- Imagen del producto -->
+    <ImageView
+        android:id="@+id/ivImagenProducto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pan2"
+        android:contentDescription="@string/item_cart_description" />
+
+    <!-- Botón para eliminar el producto -->
+    <ImageButton
+        android:id="@+id/btnEliminarProducto"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/close"
+        android:scaleType="fitCenter"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivImagenProducto"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <!-- Nombre del producto -->
+        <TextView
+            android:id="@+id/tvNombreProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cheesecake_chocolate"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Descripción del producto -->
+        <TextView
+            android:id="@+id/tvDescripcionProducto"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/cremosa_con_intenso_sabor_a_chocolate" />
+
+        <!-- Precio del producto -->
+        <TextView
+            android:id="@+id/tvPrecioProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/s_50_00"
+            android:textSize="16sp" />
+
+        <!-- Cantidad y botones de cantidad -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnDisminuirCantidad"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/boton_agregar_disminuir"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menos" />
+
+            <TextView
+                android:id="@+id/tvCantidadProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnAumentarCantidad"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/boton_agregar_disminuir"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mas" />
+        </LinearLayout>
+
+        <!-- Total del producto -->
+        <TextView
+            android:id="@+id/tvTotalProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Total: S/ 0.00"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</RelativeLayout>
